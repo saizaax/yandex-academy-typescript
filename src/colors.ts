@@ -1,18 +1,18 @@
-import { backgroundColors, effects, fontColors, Reset } from './model';
+import { backgroundColors, effects, fontColors, Reset, Effect, FontColor, BackgroundColor, Color } from './model';
 
 export interface ColorOptions {
-    font?: string;
-    background?: string;
-    effects?: string[];
+    font?: FontColor;
+    background?: BackgroundColor;
+    effects?: Effect[];
 }
 
-function addColor(text: string, color: string, isBackground: boolean = false) {
+function addColor(text: string, color: Color, isBackground: boolean = false) {
     if (isBackground) {
         return text + backgroundColors[color];
     }
     return text + fontColors[color];
 }
-function getEffects(effectList: string[]) {
+function getEffects(effectList: Effect[]) {
     return effectList.map(effect => effects[effect]).join('');
 }
 export function color(text: string, options: ColorOptions) {

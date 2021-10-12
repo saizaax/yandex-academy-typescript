@@ -1,16 +1,22 @@
-interface Colors {
-    [key: string]: string;
+export type Color = FontColor | BackgroundColor
+
+type Styles = {
+  [key: string]: string
 }
 
 export const Reset: string = '\x1b[0m';
-export const effects: Colors = {
+
+export type Effect = keyof typeof effects
+export const effects: Styles = {
     bright: '\x1b[1m',
     dim: '\x1b[2m',
     italic: '\x1b[3m',
     underscore: '\x1b[4m',
     blink: '\x1b[5m',
 };
-export const fontColors: Colors = {
+
+export type FontColor = keyof typeof fontColors 
+export const fontColors: Styles = {
     black: '\x1b[30m',
     red: '\x1b[31m',
     green: '\x1b[32m',
@@ -20,7 +26,9 @@ export const fontColors: Colors = {
     cyan: '\x1b[36m',
     white: '\x1b[37m',
 };
-export const backgroundColors: Colors = {
+
+export type BackgroundColor = keyof typeof backgroundColors 
+export const backgroundColors: Styles = {
     black: '\x1b[40m',
     red: '\x1b[41m',
     green: '\x1b[42m',
@@ -30,7 +38,9 @@ export const backgroundColors: Colors = {
     cyan: '\x1b[46m',
     white: '\x1b[47m',
 };
-export const contrast: Colors = {
+
+export type Contrast = keyof typeof contrast 
+export const contrast: Styles = {
     black: 'white',
     red: 'black',
     green: 'black',
