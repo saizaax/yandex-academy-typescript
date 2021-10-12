@@ -3,7 +3,7 @@ import { markdown } from './md';
 import { MarkdownOptions } from './md';
 import { ColorOptions } from './colors';
 
-type StyleOptions = MarkdownOptions & ColorOptions
+type StyleOptions = MarkdownOptions | ColorOptions
 
 export function style(text: string, options: StyleOptions) {
     if (text.length === 0) {
