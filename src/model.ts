@@ -1,13 +1,9 @@
 export type Color = FontColor | BackgroundColor
 
-type Styles = {
-  [key: string]: string
-}
-
 export const Reset: string = '\x1b[0m';
 
 export type Effect = keyof typeof effects
-export const effects: Styles = {
+export const effects = {
     bright: '\x1b[1m',
     dim: '\x1b[2m',
     italic: '\x1b[3m',
@@ -16,7 +12,7 @@ export const effects: Styles = {
 };
 
 export type FontColor = keyof typeof fontColors 
-export const fontColors: Styles = {
+export const fontColors = {
     black: '\x1b[30m',
     red: '\x1b[31m',
     green: '\x1b[32m',
@@ -28,7 +24,7 @@ export const fontColors: Styles = {
 };
 
 export type BackgroundColor = keyof typeof backgroundColors 
-export const backgroundColors: Styles = {
+export const backgroundColors = {
     black: '\x1b[40m',
     red: '\x1b[41m',
     green: '\x1b[42m',
@@ -39,8 +35,10 @@ export const backgroundColors: Styles = {
     white: '\x1b[47m',
 };
 
-export type Contrast = keyof typeof contrast 
-export const contrast: Styles = {
+export type Contrast = {
+  [K in Color]: Color
+}
+export const contrast: Contrast = {
     black: 'white',
     red: 'black',
     green: 'black',
